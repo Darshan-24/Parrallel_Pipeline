@@ -1,6 +1,8 @@
 pipeline {
     agent any
     stages {  
+        stage('DevOps')
+        {
            parallel {
                 stage('Jenkins') {
                     
@@ -18,4 +20,5 @@ pipeline {
                 }
             }
         }
+}
 }
