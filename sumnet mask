@@ -1,0 +1,97 @@
+
+
+
+
+
+10.0.0.0
+8.8.8.8 = 32
+/16
+10.0.ch.ch
+255.255.0.0
+
+1-10
+1.1
+1.1 - 1.10
+2.1 -2.10
+3
+
+10.0.0.0
+vpc = /27 
+8.8.8. 5/27 - vpc ( 32 -27 = 5 (2*2*2*2*2 = 32) - 30
+step1 (for 2 subnet mask)
+10.0.0.1 - 10.0.0.15 /28
+10.0.0.16 - 10.0.0.28 /28
+
+32 /4 = 8 = 6
+1 -6 =  0 -8
+2 - 6 = 9 - 16
+3- 6  = 17 - 24
+4- 6 = 25 - 32
+
+step 2 (for 4 subnet mask)
+8 hosts  /29  (32 - 29 = 3 (2*2*2 = 8)
+8-2 = 6 for each subnet - netwk and broad cast
+available host for each subnet s 6
+6 * 4sub = 24
+
+
+/23 - bits
+10.0.0.0
+8.8.8.8 = 32 bits
+32 -23 = 9 (2*2*2*2*2*2*2*2*2 = 512
+510 /6 = 85
+10.0.0.0 - subnet
+10.0.0.85
+
+510/2 = 254  /24 = 85 /24 - 6 subnets
+126 /25
+62 /26
+
+        255  /24
+
+vpc - /24  subnet 4
+10.0.0.0  2power 8 = 256
+/25  -  128 - 64 
+/25  -  128 - 64
+10.0.0.0 - 10.0.0.64   /25
+                  128 /25
+                  192 /25
+                  256 /25
+                  
+       129        255
+       
+ Requirement -if i want to create subnet under vpc /24 for 512 hosts
+Case 1 - (if we want only 2 subnet mask, then we will go fr the one higher subnet value tat s 
+/25)
+/24 (bits) it consumes 8.8.8.0 = 24 bits (ipclass C), max range 255
+Total hosts /24 = 512 hosts (32bits - 24bits = 8bits nthing but 2*2*2*2*2*2*2*2 = 512)
+for 2 subnets, we divide 512/2 = 256 (these are the available hosts under /25)
+eg: 10.0.0.0 /25
+10.0.0.0 - 10.0.0.128 /25
+10.0.0.129 - 10.0.0.256 /25
+
+Case 2 (if we want only 4 subnet mask, then we will go fr the 2 higher subnet value tat s 
+/26)
+for 4 subnets, we divide 512/4 = 128 (these are the available hosts under /26)
+eg: 10.0.0.0 /26
+10.0.0.0 - 10.0.0.64 /26
+10.0.0.65 - 10.0.0.128 /26
+10.0.0.129 - 10.0.0.192 /26
+10.0.0.193 - 10.0.0.256 /26
+Note : for the each subnet, two hosts position are blocked for network and broadcast ip address.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/28
