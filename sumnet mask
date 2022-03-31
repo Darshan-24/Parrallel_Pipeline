@@ -64,21 +64,51 @@ vpc - /24  subnet 4
 Case 1 - (if we want only 2 subnet mask, then we will go fr the one higher subnet value tat s 
 /25)
 /24 (bits) it consumes 8.8.8.0 = 24 bits (ipclass C), max range 255
-Total hosts /24 = 512 hosts (32bits - 24bits = 8bits nthing but 2*2*2*2*2*2*2*2 = 512)
-for 2 subnets, we divide 512/2 = 256 (these are the available hosts under /25)
+Total hosts /24 = 256 hosts (32bits - 24bits = 8bits nthing but 2*2*2*2*2*2*2*2 = 256)
+for 2 subnets, we divide 256/2 = 128 (these are the available hosts under /25)
 eg: 10.0.0.0 /25
-10.0.0.0 - 10.0.0.128 /25
-10.0.0.129 - 10.0.0.256 /25
+10.0.0.0 - 10.0.0.64 /25
+10.0.0.65 - 10.0.0.128 /25
 
 Case 2 (if we want only 4 subnet mask, then we will go fr the 2 higher subnet value tat s 
 /26)
-for 4 subnets, we divide 512/4 = 128 (these are the available hosts under /26)
+for 4 subnets, we divide 256/4 = 64 (these are the available hosts under /26)
 eg: 10.0.0.0 /26
 10.0.0.0 - 10.0.0.64 /26
 10.0.0.65 - 10.0.0.128 /26
 10.0.0.129 - 10.0.0.192 /26
 10.0.0.193 - 10.0.0.256 /26
 Note : for the each subnet, two hosts position are blocked for network and broadcast ip address.
+
+
+/24 - 24 bits  32 bits
+
+8.8.8.8
+/16 - 16 bits
+8.8.1.0
+
+/16 = 16 bits
+8.8.8.8 = 32 bits
+16 bits are occupied
+8.8.0.0 = 255.255.0.0
+32-16 = 16  = 65,536
+
+/25 = 25bits  32bits
+32-25= 7
+128=2*2*2*2*2*2*2
+126
+1-netwrk ip
+1-braodcast ip
+
+/29 = 29 bits  32 bits
+32-29= 3  2*2*2 = 8  -2 = 6
+8.8.8.8 = 32 bits
+o.o.o.
+
+
+10.0.0.0 - 10.0.0.4 /30 -  10.0.0.0    10.0.0.4 
+10.0.0.5 - 10.0.0.8 /30    10.0.0.5     10.0.0.8
+
 
 
 
