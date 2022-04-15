@@ -1,0 +1,45 @@
+pipeline { //keyword
+agent any 
+agent { label  'java' }
+agent none
+agent docker
+stages { 
+stage ( 'build') {
+steps {
+sh "mvn clean package"
+}
+}
+stage ( 'publish' ) {
+steps {
+sh "docker login -u registry_name -p admin"
+sh "docker tag image_name registry_name_image_name:1.0"
+sh "docker push registry_name_image_name:1.0
+}
+}
+stage ('deliver in tomcat') {
+steps {
+sh "docker pull registry_name_image_name:/home/ubuntu"
+sh "docker run -d -p 8070:8080 registry_name_image_name"
+}
+}
+
+
+declarative syntax - 
+pipeline {
+agent
+stages {
+stage ('hesaru') {
+steps{
+cmds run madthiri
+
+scripted syntax
+node {
+stage ('hesaru')
+cmds run madthiri
+
+
+
+
+
+
+
